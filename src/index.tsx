@@ -1,9 +1,13 @@
-import { createRoot } from "react-dom/client"
+import { Suspense } from "react";
+
+import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { App } from "./components/App";
+import { Shop } from "./pages/shop";
+import { About } from "./pages/about";
 
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 
 if (!root) {
   throw new Error("Root not Found");
@@ -17,15 +21,23 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/about',
-        element: <h1>About</h1>
+        path: "/about",
+        element: (
+          <Suspense>
+            <About />
+          </Suspense>
+        ),
       },
       {
-        path: '/shop',
-        element: <h1>Shop</h1>
-      }
-    ]
+        path: "/shop",
+        element: (
+          <Suspense>
+            <Shop />
+          </Suspense>
+        ),
+      },
+    ],
   },
 ]);
 
-container.render(<RouterProvider router={router} />)
+container.render(<RouterProvider router={router} />);
