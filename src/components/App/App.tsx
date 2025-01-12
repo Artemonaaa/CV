@@ -10,10 +10,6 @@ export const App = () => {
 
   const increase = () => setCount((prev) => prev + 1);
 
-  if (__PLATFORM__ === 'desktop') {
-    return <div>DESKTOP</div>
-  }
-
   return (
     <div>
       <h1>PLATFORM={__PLATFORM__}</h1>
