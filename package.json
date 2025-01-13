@@ -17,9 +17,12 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^7.1.1",
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "-": "^0.0.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.3",
@@ -30,12 +33,13 @@
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
+    "react-refresh": "^0.16.0",
+    "react-refresh-typescript": "^2.0.10",
     "sass": "^1.83.1",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2",
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
