@@ -1,11 +1,12 @@
 import { ModuleOptions, runtime } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshTypeScript from "react-refresh-typescript";
+import { buildBabelLoader } from "./babel/removeDataTestIdBabelPlugin";
 
 import { BuildOptions } from "./types/types";
 
-export function buildLoaders({ mode }: BuildOptions): ModuleOptions["rules"] {
-  const isDev = mode === "development";
+export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
+  const isDev = options.mode === "development";
 
   const assetLoader = {
     test: /\.(png|jpg|jpeg|gif)$/i,
@@ -54,20 +55,7 @@ export function buildLoaders({ mode }: BuildOptions): ModuleOptions["rules"] {
     ],
   };
 
-  const babelLoader = {
-    test: /\.tsx?$/,
-    exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
-      options: {
-        presets: [
-          "@babel/preset-env",
-          "@babel/preset-typescript",
-          ["@babel/preset-react", { runtime: isDev ? "automatic" : "classic" }],
-        ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(options);
 
   const tsLoader = {
     test: /\.tsx?$/,

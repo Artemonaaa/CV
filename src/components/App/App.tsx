@@ -11,8 +11,8 @@ export const App = () => {
   const increase = () => setCount((prev) => prev + 1);
 
   return (
-    <div>
-      <h1>PLATFORM={__PLATFORM__}</h1>
+    <div data-testid={'App'}>
+      <h1  data-testid={'Platform'}>PLATFORM={__PLATFORM__}</h1>
       <div>
         <img width={100} height={100} src={xiaopangPng} />
         <img width={100} height={100} src={xiaopangJpg} />
