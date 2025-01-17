@@ -31,7 +31,7 @@ export function buildPlugins({
   if (isDev) {
     plugins.push(new ProgressPlugin());
     plugins.push(new ForkTsCheckerWebpackPlugin()),
-    plugins.push(new ReactRefreshWebpackPlugin());
+      plugins.push(new ReactRefreshWebpackPlugin());
   }
 
   if (isProd) {
@@ -44,7 +44,10 @@ export function buildPlugins({
     plugins.push(
       new CopyPlugin({
         patterns: [
-          { from: path.resolve(paths.public, 'locales'), to: path.resolve(paths.output, 'locales') },
+          {
+            from: path.resolve(paths.public, "locales"),
+            to: path.resolve(paths.output, "locales"),
+          },
         ],
       })
     );

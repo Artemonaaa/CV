@@ -23,11 +23,11 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
       rules: buildLoaders(options),
     },
     resolve: buildResolvers(options),
-    devtool: isDev && "inline-source-map",
+    devtool: isDev ? "eval-nosources-cheap-source-map" : "source-map",
     devServer: isDev && buildDevServer(options),
     optimization: {
       splitChunks: {
-        chunks: 'all',
+        chunks: "all",
       },
     },
     performance: {
